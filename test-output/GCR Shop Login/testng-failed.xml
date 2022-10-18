@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [GCR Shop Login]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="GCR Shop Login Test Case(failed)">
+    <classes>
+      <class name="com.gcrshop.UserPageTest">
+        <methods>
+          <include name="login" invocation-numbers="1 3"/>
+          <include name="newUser"/>
+          <include name="openUserPage"/>
+          <include name="closeUserPage"/>
+          <include name="getTheMessage"/>
+        </methods>
+      </class> <!-- com.gcrshop.UserPageTest -->
+    </classes>
+  </test> <!-- GCR Shop Login Test Case(failed) -->
+</suite> <!-- Failed suite [GCR Shop Login] -->

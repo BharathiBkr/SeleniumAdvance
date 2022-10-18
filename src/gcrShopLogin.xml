@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="GCR Shop Login">
+<test name="GCR Shop Login Test Case">
+<classes>
+<class name="com.gcrshop.UserPageTest">
+</class>
+</classes>
+</test>
+</suite>
