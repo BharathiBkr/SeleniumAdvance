@@ -7,7 +7,7 @@ public class Parameter {
 	@Test
 	@Parameters("Name") //This "Name" is must present in the XML file parameter name=" "..what name u want type tin the value comment section
 	public void giveAddress(String Place ) {
-		System.out.println("The Name is"+Place);	
+		System.out.println("The Name is  "+Place);	
 	}
 
 }

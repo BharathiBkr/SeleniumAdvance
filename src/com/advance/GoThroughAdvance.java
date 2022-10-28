@@ -7,6 +7,8 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +29,7 @@ public class GoThroughAdvance {
 	public static void main(String[] args) throws InterruptedException, AWTException, IOException {
 		System.setProperty("webdriver.chrome.driver", "D:\\Eclipse\\SeleniumAdvance\\Driver\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
-		driver.navigate().to("https://www.leafground.com/link.xhtml;jsessionid=node01gnsimcv0lm2o1k9vu8b75naho376570.node0");
+		driver.navigate().to("https://www.leafground.com/dynamicgrid.xhtml");
 		
 		//Window Handle;
 //		String homeWindow=driver.getWindowHandle();
@@ -56,20 +58,21 @@ public class GoThroughAdvance {
 //			
 //		}
 		
-		//Frames
+		//i-Frames
+		
 //		driver.switchTo().frame(0);
 //		WebElement click=driver.findElement(By.id("Click"));
 //		click.click();
 //		driver.switchTo().defaultContent();
 //		List<WebElement>noofframe=driver.findElements(By.tagName("iframe"));
 //		System.out.println(noofframe.size());
-//		driver.switchTo().frame(2);
+//		driver.switchTo().frame(2); 
 //		driver.switchTo().frame("frame2");
 //		WebElement nestedframe=driver.findElement(By.id("Click"));
 //		nestedframe.click();
 		
 		//Drag and Drop
-		//Actions actions=new Actions(driver);
+//		Actions actions=new Actions(driver);
 //		WebElement dragalone=driver.findElement(By.id("form:conpnl"));
 //		actions.clickAndHold(dragalone).moveByOffset(180, 0).build().perform();
 //		WebElement drag=driver.findElement(By.id("form:drag_content"));
@@ -90,7 +93,7 @@ public class GoThroughAdvance {
 //		//Resize the Image;
 //		WebElement resize=driver.findElement(By.xpath("//*[@id=\"form\"]/div/div[1]/div[3]/div/div[1]"));
 //		actions.clickAndHold(resize).moveByOffset(100,50).build().perform();
-//		
+		
 		//Selectable;
 //		List<WebElement>orderlist=driver.findElements(By.xpath("//*[@id=\"j_idt111\"]/div/div[2]/ul/li"));
 //		System.out.println(orderlist.size());
@@ -177,13 +180,42 @@ public class GoThroughAdvance {
 //		}
 //		List<WebElement> nooflink=driver.findElements(By.tagName("a"));
 //		System.out.println(nooflink.size());
-		
+		 
 		//Take ScreenShot
 		
-		TakesScreenshot takeshot=(TakesScreenshot) driver;
-		File sourcefile=takeshot.getScreenshotAs(OutputType.FILE);
-		File destination=new File("D:\\sample.png");
-		FileUtils.copyFile(sourcefile, destination);
+//		TakesScreenshot takeshot=(TakesScreenshot) driver;
+//		File sourcefile=takeshot.getScreenshotAs(OutputType.FILE);
+//		File destination=new File("D:\\sample.png");
+//		FileUtils.copyFile(sourcefile, destination);
+		
+		//Dynamic Table;
+		
+		List<WebElement> column=driver.findElements(By.xpath("//th"));
+		System.out.println(column.size());
+		List<WebElement> row=driver.findElements(By.xpath("//*[@id=\"form:customers_data\"]//tr"));
+		System.out.println(row.size());
+		WebElement marilo=driver.findElement(By.xpath("//td[contains(text(),'RENEWAL')]//following::td[1]"));
+		System.out.println(marilo.getText());
+		
+		//Get the minium value of activity Person;
+		
+		List<WebElement>listofactivity=driver.findElements(By.xpath("//td[4]"));
+		List<Integer> integervalue=new ArrayList<Integer>();
+		for (WebElement activity : listofactivity) {
+			String strigvalue=activity.getText();
+			Integer value=Integer.parseInt(strigvalue);
+			integervalue.add(value);	
+		}
+		System.out.println(integervalue);
+		Integer miniumvalue=Collections.min(integervalue);
+		String minvalue=Integer.toString(miniumvalue);
+		System.out.println(minvalue);
+		String xpath="//td[text()="+"\""+minvalue+"\""+"]//preceding::td[3]";
+		System.out.println(xpath);
+		WebElement mini=driver.findElement(By.xpath(xpath));
+		System.out.println(mini.getText());
+		
+		
 		
 		
 	}

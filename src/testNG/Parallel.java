@@ -7,24 +7,27 @@ import org.testng.annotations.Test;
 public class Parallel {
 	//Open the Google,YouTube,WhatsappWeb
 	@Test
-	public void openGoogle() {
+	public void openGoogle() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "D:\\Eclipse\\SeleniumAdvance\\Driver\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.google.co.in/");
+		Thread.sleep(3000);
 		driver.quit();	
 	}
 	@Test
-	public void openYoutube() {
+	public void openYoutube() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "D:\\Eclipse\\SeleniumAdvance\\Driver\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.youtube.com/");
+		Thread.sleep(3000);
 		driver.quit();	
 	}
 	@Test
-	public void openWhatsapp() {
+	public void openWhatsapp() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "D:\\Eclipse\\SeleniumAdvance\\Driver\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://web.whatsapp.com/");
+		Thread.sleep(3000);
 		driver.quit();	
 	}
 	
