@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 public class Superparallelclass {
-	public WebDriver driver;
+	 WebDriver driver;
 	@Parameters({"browser"})
 	@BeforeMethod
 	

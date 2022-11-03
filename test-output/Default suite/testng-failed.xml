@@ -3,11 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testNG.OpenGoogleWithScreenShot">
+      <class name="com.gcrshop.Testcase1">
         <methods>
-          <include name="testGuru99TakeScreenShot"/>
+          <include name="test2"/>
+          <include name="launchbrowser"/>
+          <include name="test3"/>
+          <include name="closebrowser"/>
         </methods>
-      </class> <!-- testNG.OpenGoogleWithScreenShot -->
+      </class> <!-- com.gcrshop.Testcase1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

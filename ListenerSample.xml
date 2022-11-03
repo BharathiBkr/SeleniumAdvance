@@ -7,7 +7,7 @@
 </listeners>
 <test name="Sample Program With Listener">
 <classes>
-<class name="testNG.Sample"></class>
+<class name="testNG.GothrourghTestNG"></class>
 </classes>
 </test>
 </suite>
