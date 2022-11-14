@@ -6,39 +6,36 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.poi.hwpf.usermodel.DateAndTime;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 
 public class Baseclass {
-	public static WebDriver driver;  //This is very Important for screenhot on xml and base class model
-	public static String subfolder;
-	@BeforeTest
-	public void launchbrowser() {
+	public static WebDriver driver;
+	 public static String dateformat;
+	
+	@BeforeSuite
+	public void openbrowser() {
 		System.setProperty("webdriver.chrome.driver", "D:\\Eclipse\\SeleniumAdvance\\Driver107\\chromedriver.exe");
-		driver=new ChromeDriver();
+		driver=new ChromeDriver();	
 	}
-	@AfterTest
+	@AfterSuite
 	public void closebrowser() {
 		driver.quit();
 		
 	}
-	public void screenshots(String filename) throws IOException {
-		if (subfolder==null) { //During The XML execution each time this subfolder is null..during the execution time is create the datetime format file type
-			LocalDateTime datetime=LocalDateTime.now();
-			DateTimeFormatter dateformat=DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
-			subfolder=datetime.format(dateformat);
-		}
+	public void screenshot(String filename) throws IOException {
+		LocalDateTime datetime=LocalDateTime.now();
+		DateTimeFormatter format=DateTimeFormatter.ofPattern("ddMMyyyyhhmm");
+		dateformat=datetime.format(format);
 		TakesScreenshot shot=(TakesScreenshot) driver;
 		File sourcefile=shot.getScreenshotAs(OutputType.FILE);
-		File destinationfile=new File("./Screenshots/"+subfolder+"/"+filename+".jpg");
+		File destinationfile=new File("D:\\Photos\\Screenshots\\"+dateformat+"\\"+filename+".jpg");
 		FileUtils.copyFile(sourcefile, destinationfile);
+		
 		
 	}
 

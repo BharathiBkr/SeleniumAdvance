@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Testfailure">
+<suite name="Test Suitr">
 <listeners>
-<listener class-name="com.gcrshop.Listerners">
+<listener class-name="com.gcrshop.Listeners">
 </listener>
-
 </listeners>
-<test name="Failure Testcase">
+<test name="Test">
 <classes>
-<class name="com.gcrshop.Testcase1"></class>
+<class name="com.gcrshop.Testcase">
+
+</class>
+
+
+
 
 </classes>
 
 
 
+
+
+
 </test>
+
+
 
 </suite>
